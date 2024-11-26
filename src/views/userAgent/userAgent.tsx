@@ -9,16 +9,12 @@ export const UserAgent = () => {
   return (
     <div>
       <BackToHome />
-
-      {userAgent && (
-        <div className="flex font-mono font-semibold text-sm">
-          <div className="border p-2">UserAgent</div>
-
-          <div className="border p-2">{userAgent}</div>
+      <div className="flex font-mono font-semibold text-sm">
+        <div className="border p-2">UserAgent</div>
+        <div className="border p-2">
+          {userAgent || "User agent not available"}
         </div>
-      )}
-
-      {!userAgent && <div>No user agent</div>}
+      </div>
     </div>
   );
 };
