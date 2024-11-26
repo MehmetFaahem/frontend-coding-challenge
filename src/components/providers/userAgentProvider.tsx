@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useMemo,
-  useState,
-  ReactNode,
-  useEffect,
-} from "react";
+import { createContext, useContext, useMemo, useState, ReactNode } from "react";
 
 const CONTEXT_ERROR =
   "useUserAgentContext must be used within a UserAgentProvider";
@@ -43,11 +36,6 @@ export const UserAgentProvider: React.FC<UserAgentProviderProps> = ({
   const [userAgent, setUserAgent] = useState<UserAgent | undefined>(
     userAgentProp
   );
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setUserAgent(window.navigator.userAgent);
-  }, []);
 
   const value = useMemo<UserAgentContextType>(
     () => ({
